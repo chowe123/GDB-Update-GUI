@@ -69,7 +69,7 @@ def mainrun():
     arcpy.env.workspace = foldentry.get()
     excelfile_loc = fileentry.get()
     update_vaccination()
-    messagebox.showinfo("Completed", "Vaccine gdb has been updated!")
+    messagebox.showinfo("Completed", "GDB has been updated!")
     
 
 runbutton = Button(root, text="Calculate", command=mainrun)
