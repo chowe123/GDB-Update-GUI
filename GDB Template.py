@@ -2,7 +2,8 @@ from __future__ import division
 import sys
 import os
 
-#Module Folder name
+#Add Module folder to path.
+    #Module folder contains openpyxl instead of installing it from pip to make it more user friendly
 openpyxl_module = "Modules"
 module_path = os.path.join(os.path.dirname(__file__), openpyxl_module)
 sys.path.append(module_path)
@@ -12,9 +13,21 @@ import arcpy
 
 from datetime import datetime
 
-def updateFunction():
-    pass
+#Location of user selected Excel file
+excelfile_loc = ""
 
+#Imports the specified excel sheet into the specified file geodatabase
+def importSheet(excel_loc, output_loc, sheet_name):
+    arcpy.management.Delete(output_loc)
+    arcpy.ExcelToTable_conversion(excel_loc, output_loc, sheet_name)
+
+#Runs when user clicks "Update" button.
+    #arcpy.env.workspace is updated to user selected gdb
+def updateFunction():
+    #importSheet(temp_excel_loc, "Import", "Sheet1")
+    #arcpy.management.JoinField("FeatureClass", "PrimaryKey", "Import", "PrimaryKey", ["Field1", "Field2"])
+    pass
+    
 ##################################################################################################
 #
 #              GUI Code
@@ -68,11 +81,11 @@ def mainrun():
     global output_loc
     arcpy.env.workspace = foldentry.get()
     excelfile_loc = fileentry.get()
-    update_vaccination()
+    updateFunction()
     messagebox.showinfo("Completed", "GDB has been updated!")
     
 
-runbutton = Button(root, text="Calculate", command=mainrun)
+runbutton = Button(root, text="Update", command=mainrun)
 runbutton.grid(row=4, column=0, ipadx=50, sticky="w")
 
 root.mainloop()
