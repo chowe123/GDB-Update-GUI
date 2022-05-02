@@ -1,6 +1,6 @@
 # GDB-Update-GUI
-![Gui_Interface](https://i.imgur.com/63oVc9r.png)
 Template GUI for creating update scripts for GDBs
+![Gui_Interface](https://i.imgur.com/63oVc9r.png)
 
 Add relevant update actions to: updateFunction()
 
