@@ -26,6 +26,7 @@ def importSheet(excel_loc, output_loc, sheet_name):
 def updateFunction():
     #importSheet(temp_excel_loc, "Import", "Sheet1")
     #arcpy.management.JoinField("FeatureClass", "PrimaryKey", "Import", "PrimaryKey", ["Field1", "Field2"])
+    #arcpy.management.Delete("Import")
     pass
     
 ##################################################################################################
