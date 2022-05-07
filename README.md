@@ -1,5 +1,5 @@
 # GDB-Update-GUI
-Template GUI for creating update scripts for GDBs
+Template GUI for creating update scripts for GDBs written in Python 2
 ![Gui_Interface](https://i.imgur.com/63oVc9r.png)
 
 Add relevant update actions to: ```updateFunction()```
