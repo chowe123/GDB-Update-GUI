@@ -14,7 +14,7 @@ import arcpy
 from datetime import datetime
 
 #Location of user selected Excel file
-excelfile_loc = "" #Location of inputted Excel FIle
+excelfile_loc = ""
 
 
 #User variables
