@@ -14,7 +14,16 @@ import arcpy
 from datetime import datetime
 
 #Location of user selected Excel file
-excelfile_loc = ""
+excelfile_loc = "" #Location of inputted Excel FIle
+
+
+#User variables
+sheetName = "Table1" #Name of the Excel sheet to import
+importTableName = "Import" #Name of resulting table after importing the Excel file
+gdbFeatureName = "FeatureClass" #List of feature class within the GDB to update
+joinFieldGDB = "PrimaryKey_1" #Name of the field used to join with the Excel Sheet
+joinFieldExcel = "PrimaryKey_2" #Name of the field used to join with the Feature Class
+joinFields = ["Field_1", "Field_2"] #List of fields to join between the Excel Sheet and the Feature Class
 
 #Imports the specified excel sheet into the specified file geodatabase
 def importSheet(excel_loc, output_loc, sheet_name):
@@ -24,9 +33,9 @@ def importSheet(excel_loc, output_loc, sheet_name):
 #Runs when user clicks "Update" button.
     #arcpy.env.workspace is updated to user selected gdb
 def updateFunction():
-    #importSheet(excelfile_loc, "Import", "Sheet1")
-    #arcpy.management.JoinField("FeatureClass", "PrimaryKey", "Import", "PrimaryKey", ["Field1", "Field2"])
-    #arcpy.management.Delete("Import")
+    importSheet(excelfile_loc, importTableName, sheetName)
+    arcpy.management.JoinField(gdbFeatureName, joinFieldGDB, importTableName, joinFieldExcel, joinFields)
+    arcpy.management.Delete(importTableName)
     pass
     
 ##################################################################################################
