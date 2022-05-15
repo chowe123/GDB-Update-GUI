@@ -24,7 +24,7 @@ def importSheet(excel_loc, output_loc, sheet_name):
 #Runs when user clicks "Update" button.
     #arcpy.env.workspace is updated to user selected gdb
 def updateFunction():
-    #importSheet(temp_excel_loc, "Import", "Sheet1")
+    #importSheet(excelfile_loc, "Import", "Sheet1")
     #arcpy.management.JoinField("FeatureClass", "PrimaryKey", "Import", "PrimaryKey", ["Field1", "Field2"])
     #arcpy.management.Delete("Import")
     pass
